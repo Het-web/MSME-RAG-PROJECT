@@ -33,9 +33,19 @@ class Settings(BaseSettings):
     chunk_size: int = 1000
     chunk_overlap: int = 150
 
-    tavily_max_results: int = 3
+    tavily_max_results: int = 5
     tavily_search_depth: str = "advanced"
     tavily_exclude_domains: list[str] = ["msme.gov.in/sites/default/files"]
+    tavily_include_domains: list[str] = [
+        "msme.gov.in",
+        "startupindia.gov.in",
+        "udyamregistration.gov.in",
+        "pib.gov.in",
+        "rbi.org.in",
+        "sidbi.in",
+        "cgtmse.in",
+        "india.gov.in",
+    ]
 
     request_timeout_seconds: int = 60
     run_ingestion_on_startup: bool = True

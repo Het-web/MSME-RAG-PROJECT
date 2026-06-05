@@ -37,6 +37,7 @@ class ConditionalTavilySearch:
                 include_raw_content=False,
                 include_images=False,
                 exclude_domains=self.settings.tavily_exclude_domains,
+                include_domains=self.settings.tavily_include_domains,
             )
         return self._tool
 
