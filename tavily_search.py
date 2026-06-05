@@ -45,10 +45,12 @@ class ConditionalTavilySearch:
             return True, "Query asks for recent, latest, current, or announcement-style information."
         return False, "Query can be answered from the local knowledge base if relevant context exists."
 
-    def search(self, query: str) -> TavilyResult:
-        should_search, reason = self.should_search(query)
-        if not should_search:
-            return TavilyResult(used=False, reason=reason)
+    def search(self, query: str, trigger_reason: str | None = None) -> TavilyResult:
+        reason = trigger_reason
+        if reason is None:
+            should_search, reason = self.should_search(query)
+            if not should_search:
+                return TavilyResult(used=False, reason=reason)
         if not self.settings.tavily_api_key:
             return TavilyResult(used=False, reason="TAVILY_API_KEY is not configured.")
 

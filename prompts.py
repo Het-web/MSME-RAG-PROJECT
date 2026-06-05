@@ -17,6 +17,23 @@ Output only the search query, maximum 20 words.
 User question: {query}
 """
 
+CONTEXT_SUFFICIENCY_PROMPT = """Question:
+{query}
+
+Retrieved Context:
+{context}
+
+Determine whether the retrieved context contains enough information to fully answer the question.
+
+Respond ONLY with JSON:
+
+{{"answerable": true}}
+
+or
+
+{{"answerable": false}}
+"""
+
 ANSWER_PROMPT = """You are an MSME and Startup Business Advisor for India.
 
 Use the provided context to answer the user's question.

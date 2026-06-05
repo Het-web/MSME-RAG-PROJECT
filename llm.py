@@ -21,6 +21,19 @@ def get_router_llm() -> BaseChatModel:
 
 
 @lru_cache
+def get_sufficiency_llm() -> BaseChatModel:
+    settings = get_settings()
+    if not settings.groq_api_key:
+        raise RuntimeError("GROQ_API_KEY is required for context sufficiency evaluation.")
+    return ChatGroq(
+        model=settings.router_model,
+        temperature=0,
+        api_key=settings.groq_api_key,
+        max_tokens=32,
+    )
+
+
+@lru_cache
 def get_final_llm() -> BaseChatModel:
     settings = get_settings()
     if settings.final_provider == "openrouter":
