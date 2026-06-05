@@ -83,7 +83,7 @@ def chat(request: ChatRequest) -> ChatResponse:
         sufficiency_result = sufficiency_evaluator.evaluate(query, local_context, retrieved_chunks)
         metrics.update(sufficiency_result.metrics)
         logger.info(
-            "context_sufficiency_evaluated context_answerable=%s reason=%r",
+            "context_sufficiency_evaluated context_answerable=%s context_sufficiency_reason=%r",
             sufficiency_result.answerable,
             sufficiency_result.reason,
         )

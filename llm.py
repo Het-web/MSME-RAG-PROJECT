@@ -29,7 +29,7 @@ def get_sufficiency_llm() -> BaseChatModel:
         model=settings.router_model,
         temperature=0,
         api_key=settings.groq_api_key,
-        max_tokens=32,
+        max_tokens=96,
     )
 
 

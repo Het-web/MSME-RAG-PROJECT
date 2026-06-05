@@ -17,21 +17,32 @@ Output only the search query, maximum 20 words.
 User question: {query}
 """
 
-CONTEXT_SUFFICIENCY_PROMPT = """Question:
+CONTEXT_SUFFICIENCY_PROMPT = """You are evaluating whether retrieved context FULLY answers a user's question.
+
+Important:
+
+* A mention of the topic is NOT sufficient.
+* A reference to a scheme is NOT sufficient.
+* A reference to a definition is NOT sufficient.
+* A reference to a classification is NOT sufficient.
+* The specific facts requested by the question must be present.
+* If the answer requires newer information than the context provides, return false.
+* If the context only partially answers the question, return false.
+* Be conservative. When uncertain, return false.
+
+Question:
 {query}
 
 Retrieved Context:
 {context}
 
-Determine whether the retrieved context contains enough information to fully answer the question.
-
 Respond ONLY with JSON:
 
-{{"answerable": true}}
+{{"answerable": true, "reason": "short explanation"}}
 
 or
 
-{{"answerable": false}}
+{{"answerable": false, "reason": "short explanation"}}
 """
 
 ANSWER_PROMPT = """You are an MSME and Startup Business Advisor for India.
