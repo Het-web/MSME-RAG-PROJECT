@@ -29,7 +29,7 @@ class Settings(BaseSettings):
     pdf_dir: Path = Path("./data/pdfs")
     ingestion_manifest_path: Path = Path("./ragdb/ingestion_manifest.json")
 
-    retrieval_top_k: int = 3
+    retrieval_top_k: int = 8
     chunk_size: int = 1000
     chunk_overlap: int = 150
 

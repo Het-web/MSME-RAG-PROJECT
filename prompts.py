@@ -21,11 +21,11 @@ CONTEXT_SUFFICIENCY_PROMPT = """You are evaluating whether retrieved context FUL
 
 Important:
 
-* A mention of the topic is NOT sufficient.
-* A reference to a scheme is NOT sufficient.
-* A reference to a definition is NOT sufficient.
-* A reference to a classification is NOT sufficient.
-* The specific facts requested by the question must be present.
+* Merely mentioning the topic exists without providing detail is NOT sufficient.
+* Merely referencing that a scheme exists without providing the actual scheme details is NOT sufficient.
+* Merely referencing that a definition exists without providing the actual definition details/thresholds is NOT sufficient.
+* Merely referencing that a classification exists without providing the actual classification details is NOT sufficient.
+* The specific facts requested by the question must be present in the context.
 * If the answer requires newer information than the context provides, return false.
 * If the context only partially answers the question, return false.
 * Be conservative. When uncertain, return false.

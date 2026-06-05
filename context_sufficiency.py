@@ -17,7 +17,7 @@ TEMPORAL_QUERY_PATTERN = re.compile(
 )
 
 MSME_DEFINITION_QUERY_PATTERN = re.compile(
-    r"\b(definition|define|classification|classify|what is an? msme|what are msmes?)\b",
+    r"\b(definition|define|classification|classify|thresholds?|limits?|categories|what is (?:an? )?msme|what are msmes?)\b",
     re.IGNORECASE,
 )
 

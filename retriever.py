@@ -1,9 +1,16 @@
+import re
 from langchain_chroma import Chroma
 from langchain_ollama import OllamaEmbeddings
 
 from config import get_settings
 from models import RetrievalResult, Source
 from utils import compact_text, elapsed_ms, now_ms
+
+
+MSME_DEFINITION_QUERY_PATTERN = re.compile(
+    r"\b(definition|define|classification|classify|thresholds?|limits?|categories|what is (?:an? )?msme|what are msmes?)\b",
+    re.IGNORECASE,
+)
 
 
 class MSMERetriever:
@@ -23,8 +30,12 @@ class MSMERetriever:
     def retrieve(self, query: str) -> RetrievalResult:
         metrics: dict[str, float | int] = {}
 
+        search_query = query
+        if MSME_DEFINITION_QUERY_PATTERN.search(query) and "msme" in query.lower():
+            search_query = f"{query} classification criteria investment turnover limits threshold micro small medium"
+
         embedding_start = now_ms()
-        query_embedding = self.embeddings.embed_query(query)
+        query_embedding = self.embeddings.embed_query(search_query)
         metrics["embedding_generation_ms"] = elapsed_ms(embedding_start)
 
         retrieval_start = now_ms()
