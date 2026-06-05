@@ -1,0 +1,93 @@
+# =========================
+# Python
+# =========================
+__pycache__/
+*.py[cod]
+*$py.class
+
+# =========================
+# Virtual Environments
+# =========================
+.venv/
+venv/
+env/
+ENV/
+
+# =========================
+# Environment Variables
+# =========================
+.env
+.env.local
+.env.production
+
+# =========================
+# Vector Database
+# =========================
+ragdb/
+chroma/
+.chroma/
+
+# =========================
+# Logs
+# =========================
+*.log
+logs/
+
+# =========================
+# Build / Distribution
+# =========================
+build/
+dist/
+*.egg-info/
+
+# =========================
+# IDEs & Editors
+# =========================
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+
+# =========================
+# Jupyter
+# =========================
+.ipynb_checkpoints/
+
+# =========================
+# OS Files
+# =========================
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# =========================
+# Testing / Coverage
+# =========================
+.pytest_cache/
+.coverage
+htmlcov/
+
+# =========================
+# Temporary Files
+# =========================
+*.tmp
+*.temp
+
+# =========================
+# Streamlit
+# =========================
+.streamlit/secrets.toml
+
+# =========================
+# Local Databases
+# =========================
+*.db
+*.sqlite
+*.sqlite3
+
+# =========================
+# Keep PDFs in Git
+# (Do NOT ignore data/)
+# =========================
