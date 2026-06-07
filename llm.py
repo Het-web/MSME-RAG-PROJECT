@@ -16,7 +16,7 @@ def get_router_llm() -> BaseChatModel:
         model=settings.router_model,
         temperature=0,
         api_key=settings.groq_api_key,
-        max_tokens=8,
+        max_tokens=128,
     )
 
 
