@@ -1,0 +1,47 @@
+version: "3.9"
+
+services:
+
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+
+    container_name: msme-api
+
+    ports:
+      - "8000:8000"
+
+    volumes:
+      - ./ragdb:/app/ragdb
+      - ./data:/app/data
+
+    env_file:
+      - .env
+    
+    environment:
+      - OLLAMA_BASE_URL=http://host.docker.internal:11434
+
+  streamlit:
+    build:
+      context: .
+      dockerfile: Dockerfile.streamlit
+
+    container_name: msme-streamlit
+
+    ports:
+      - "8501:8501"
+    
+    env_file:
+      - .env
+    
+    volumes:
+      - ./ragdb:/app/ragdb
+      - ./data:/app/data
+
+    environment:
+      - OLLAMA_BASE_URL=http://host.docker.internal:11434
+      - MSME_API_URL=http://api:8000/chat
+
+    depends_on:
+      - api

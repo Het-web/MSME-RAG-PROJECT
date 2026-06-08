@@ -5,7 +5,7 @@ import requests
 import streamlit as st
 
 
-API_URL = os.getenv("MSME_API_URL", "http://127.0.0.1:8000/chat")
+API_URL = os.getenv("MSME_API_URL", "http://api:8000/chat")
 
 
 def ask_api(query: str) -> dict[str, Any]:

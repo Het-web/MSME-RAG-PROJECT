@@ -21,7 +21,10 @@ class Settings(BaseSettings):
     temperature: float = 0.1
     max_output_tokens: int = 1200
 
-    ollama_base_url: str = "http://localhost:11434"
+    ollama_base_url: str = Field(
+    default="http://host.docker.internal:11434",
+    alias="OLLAMA_BASE_URL",
+)
     embedding_model: str = "nomic-embed-text:latest"
 
     chroma_persist_dir: Path = Path("./ragdb")
@@ -48,7 +51,7 @@ class Settings(BaseSettings):
     ]
 
     request_timeout_seconds: int = 60
-    run_ingestion_on_startup: bool = True
+    run_ingestion_on_startup: bool = False
     log_level: str = "INFO"
 
     model_config = SettingsConfigDict(
