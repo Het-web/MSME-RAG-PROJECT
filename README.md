@@ -35,25 +35,11 @@ The system first tries to answer from the local knowledge base (`ragdb`). If the
 
 ## Architecture
 
-```text
-Streamlit UI
-    ↓
-FastAPI Backend
-    ↓
-Guardrails
-    ↓
-Router
-    ↓
-Retriever (ChromaDB + Ollama embeddings)
-    ↓
-Context Sufficiency Check
-    ↓
-Optional Tavily Web Search
-    ↓
-LLM Answer Generation
-```
+![Architecture Diagram](images/Architecture.png)
 
 The system is designed as a Streamlit frontend talking to a FastAPI backend. The backend performs routing, retrieval, context checking, optional web search, and final answer generation.
+
+![Flowchart Diagram](images/Flowchart.png)
 
 ---
 
