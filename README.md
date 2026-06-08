@@ -2,7 +2,7 @@
 
 Production-ready FastAPI + LangChain implementation of the original Langflow MSME, Startup, and Entrepreneurship advisory flow.
 
-## 🚀 Try Now
+## Try Now
 
 <p align="center">
   <a href="https://msmerag.duckdns.org/">
