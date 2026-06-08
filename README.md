@@ -2,6 +2,14 @@
 
 Production-ready FastAPI + LangChain implementation of the original Langflow MSME, Startup, and Entrepreneurship advisory flow.
 
+## 🚀 Try Now
+
+<p align="center">
+  <a href="https://msmerag.duckdns.org/">
+    <img src="https://img.shields.io/badge/Try%20Now-MSME%20Advisory%20Assistant-blue?style=for-the-badge" alt="Try Now">
+  </a>
+</p>
+
 ## Architecture
 
 - Regex-first guardrails block PII, credentials, jailbreaks, prompt extraction, role-changing attacks, and safety bypass attempts before any downstream component runs.
